@@ -1,0 +1,36 @@
+{
+  "name": "nostr-feedback-button",
+  "version": "0.1.0",
+  "description": "",
+  "type": "module",
+  "main": "feedback.js",
+  "types": "feedback.d.ts",
+  "browser": "feedback.browser.js",
+  "scripts": {
+    "build": "pnpm build-esm && pnpm build-browser && pnpm build-types",
+    "build-esm": "esbuild feedback.ts  --outfile=feedback.js",
+    "build-browser": "esbuild feedback.ts --bundle --outfile=feedback.browser.js",
+    "build-types": "tsc feedback.ts --target esnext --declaration --emitDeclarationOnly --module nodenext --moduleResolution nodenext",
+    "format": "prettier -w ."
+  },
+  "keywords": [
+    "nostr",
+    "feedback"
+  ],
+  "files": [
+    "feedback.js",
+    "feedback.browser.js",
+    "feedback.d.ts",
+    "feedback.ts"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "nostr-tools": "^2.10.4"
+  },
+  "packageManager": "pnpm@9.15.6"
+}

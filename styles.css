@@ -1,0 +1,67 @@
+.shout-container {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  overflow: visible;
+  z-index: 1;
+
+  filter: drop-shadow(0.2rem 0.2rem 0.3rem lightgray);
+}
+
+.shout-button {
+  border-radius: 30%;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  background-color: skyblue;
+}
+
+.shout-form {
+  border: 1px solid skyblue;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: azure;
+
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+
+  max-width: 40rem;
+  width: calc(100vw - 2rem);
+}
+
+.shout-form > .header {
+  font-size: 1.5rem;
+}
+
+.shout-form > textarea {
+  display: block;
+  border: 1px solid lightblue;
+  border-radius: 0.2rem;
+  padding: 0.1rem 0.4rem;
+}
+
+.shout-form > .footer {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.shout-form > .footer > button {
+  border-radius: 0.2rem;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+}
+
+.shout-form > .footer > .checkbox {
+  margin-right: auto;
+}
+
+.shout-form > .footer > button[type="submit"] {
+  background-color: skyblue;
+}
+.shout-form > .footer > button[type="submit"]:disabled {
+  background-color: gray;
+  cursor: progress;
+}
