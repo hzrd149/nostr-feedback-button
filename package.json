@@ -1,6 +1,6 @@
 {
   "name": "nostr-feedback-button",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
   "type": "module",
   "main": "feedback.js",
@@ -21,7 +21,8 @@
     "feedback.js",
     "feedback.browser.js",
     "feedback.d.ts",
-    "feedback.ts"
+    "feedback.ts",
+    "styles.css"
   ],
   "license": "MIT",
   "devDependencies": {
