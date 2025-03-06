@@ -111,8 +111,7 @@ async function buildFeedbackEvent(
 
 export function createFeedbackForm(
   options: FeedbackOptions,
-  onsubmit: (feedback: NostrEvent) => void,
-  oncancel?: () => void,
+  onclose?: () => void,
 ) {
   const form = document.createElement("form");
   form.classList.add("shout-form");
@@ -140,8 +139,11 @@ export function createFeedbackForm(
   const cancel = document.createElement("button");
   cancel.textContent = "Cancel";
   cancel.type = "button";
-  if (oncancel) cancel.onclick = oncancel;
+  if (onclose) cancel.onclick = onclose;
   footer.appendChild(cancel);
+
+  const status = document.createElement("div");
+  footer.appendChild(status);
 
   // only add the option to turn off anon if signEvent is set
   if (options.signEvent) {
@@ -187,8 +189,21 @@ export function createFeedbackForm(
         await publishToRelays(options.relays, signed);
       }
 
-      onsubmit(signed);
-    } catch (error) {}
+      if (options.onFeedback) options.onFeedback(signed);
+
+      form.reset();
+
+      status.textContent = "Sent";
+      status.style.color = "green";
+      if (onclose)
+        setTimeout(() => {
+          status.textContent = "";
+          onclose();
+        }, 1000);
+    } catch (error) {
+      status.textContent = "Failed";
+      status.style.color = "red";
+    }
 
     submit.disabled = false;
     form.classList.remove("submitting");
@@ -216,10 +231,7 @@ export function createFeedbackButton(options: FeedbackOptions) {
 
   const form = createFeedbackForm(
     options,
-    (feedback) => {
-      closeForm();
-      if (options.onFeedback) options.onFeedback(feedback);
-    },
+
     closeForm,
   );
   form.style.display = "none";

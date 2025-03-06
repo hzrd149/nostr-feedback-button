@@ -48,6 +48,8 @@ createFeedbackButton({
 <head>
   <link rel="stylesheet" href="//unpkg.com/nostr-feedback-button/styles.css" />
   <script src="//unpkg.com/nostr-feedback-button/feedback.browser.js"></script>
+</head>
+<body>
   <script>
     window.nostr_feedback.createFeedbackButton({
       developer: "<your nostr pubkey>",
@@ -60,7 +62,7 @@ createFeedbackButton({
       // additional options
     });
   </script>
-</head>
+</body>
 ```
 
 ## Using in a javascript app

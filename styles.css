@@ -8,7 +8,13 @@
   filter: drop-shadow(0.2rem 0.2rem 0.3rem lightgray);
 }
 
-.shout-button {
+/* reset browser button styles */
+.shout-container button {
+  border: none;
+  background: none;
+}
+
+.shout-container .shout-button {
   border-radius: 30%;
   width: 2rem;
   height: 2rem;
@@ -16,7 +22,7 @@
   background-color: skyblue;
 }
 
-.shout-form {
+.shout-container .shout-form {
   border: 1px solid skyblue;
   border-radius: 1rem;
   padding: 0.5rem;
@@ -30,38 +36,39 @@
   width: calc(100vw - 2rem);
 }
 
-.shout-form > .header {
+.shout-container .shout-form > .header {
   font-size: 1.5rem;
+  margin: 0;
 }
 
-.shout-form > textarea {
+.shout-container .shout-form > textarea {
   display: block;
   border: 1px solid lightblue;
   border-radius: 0.2rem;
   padding: 0.1rem 0.4rem;
 }
 
-.shout-form > .footer {
+.shout-container .shout-form > .footer {
   display: flex;
   flex-direction: row-reverse;
   gap: 0.5rem;
   align-items: center;
 }
 
-.shout-form > .footer > button {
+.shout-container .shout-form > .footer > button {
   border-radius: 0.2rem;
   cursor: pointer;
   padding: 0.2rem 0.5rem;
 }
 
-.shout-form > .footer > .checkbox {
+.shout-container .shout-form > .footer > .checkbox {
   margin-right: auto;
 }
 
-.shout-form > .footer > button[type="submit"] {
+.shout-container .shout-form > .footer > button[type="submit"] {
   background-color: skyblue;
 }
-.shout-form > .footer > button[type="submit"]:disabled {
+.shout-container .shout-form > .footer > button[type="submit"]:disabled {
   background-color: gray;
   cursor: progress;
 }
