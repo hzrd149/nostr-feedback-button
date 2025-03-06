@@ -221,10 +221,12 @@ export function createFeedbackButton(options: FeedbackOptions) {
   button.textContent = "🗯";
 
   const openForm = () => {
+    container.classList.add("open");
     form.style.display = "flex";
     button.style.display = "none";
   };
   const closeForm = () => {
+    container.classList.remove("open");
     form.style.display = "none";
     button.style.display = "block";
   };
