@@ -95,7 +95,7 @@ async function buildFeedbackEvent(
     content += "\n\n" + metadata;
   }
 
-  const oneMonth = 60 * 24 * 30;
+  const oneMonth = 60 * 60 * 24 * 30;
 
   return {
     kind: FEEDBACK_KIND,
